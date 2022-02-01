@@ -1,0 +1,9 @@
+.bsp
+.idea
+target
+project/target
+client/target
+server/target
+protobuf/target
+zio-grpc-app/target
+.DS_Store
