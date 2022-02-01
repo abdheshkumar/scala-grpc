@@ -26,20 +26,9 @@ lazy val protobuf =
     .in(file("protobuf"))
     .settings(
       commonSettings,
-      //scalapbCodeGeneratorOptions += CodeGeneratorOption.FlatPackage,
-      Compile / PB.targets ++= Seq(
-        scalapb.zio_grpc.ZioCodeGenerator -> (Compile / sourceManaged).value / "scalapb"
-      )
+      scalapbCodeGeneratorOptions += CodeGeneratorOption.FlatPackage
     )
     .enablePlugins(Fs2Grpc)
-
-lazy val `zio-grpc-app` =
-  project
-    .in(file("zio-grpc-app"))
-    .settings(
-      commonSettings
-    )
-    .dependsOn(protobuf)
 
 lazy val client =
   project

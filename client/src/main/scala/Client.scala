@@ -1,8 +1,8 @@
 import cats.effect.{ExitCode, IO, IOApp, Resource}
-import com.example.protos.my.{GreeterFs2Grpc, HelloRequest, HelloWorldFs2Grpc}
+import com.example.protos.{GreeterFs2Grpc, HelloRequest, HelloWorldFs2Grpc}
+import fs2.grpc.syntax.all._
 import io.grpc.netty.NettyChannelBuilder
 import io.grpc.{ManagedChannel, Metadata}
-import fs2.grpc.syntax.all._
 
 object Client extends IOApp {
 
