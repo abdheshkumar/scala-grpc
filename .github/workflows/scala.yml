@@ -18,5 +18,11 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Run tests
-      run: sbt test
+    - name: Clean
+      run: sbt +clean
+    - name: Compile
+      run: sbt +compile
+    - name: Build and Test
+      run: sbt +test
+    - name: Publish Local
+      run: sbt +publishLocal
