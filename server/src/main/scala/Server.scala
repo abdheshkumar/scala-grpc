@@ -1,15 +1,9 @@
-import _root_.com.example.protos.my.{
-  GreeterFs2Grpc,
-  GreeterGrpc,
-  HelloReply,
-  HelloRequest,
-  HelloWorldFs2Grpc
-}
 import cats.effect.{ExitCode, IO, IOApp, Resource}
+import com.example.protos._
 import io.grpc.netty.NettyServerBuilder
+import io.grpc.{Metadata, ServerServiceDefinition}
 
-import scala.concurrent.{ExecutionContext, Future}
-import io.grpc.{Metadata, ServerServiceDefinition};
+import scala.concurrent.{ExecutionContext, Future};
 
 object Server extends IOApp {
 
