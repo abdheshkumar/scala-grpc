@@ -1,4 +1,5 @@
 import com.typesafe.scalalogging.LazyLogging
+import common.Constant
 import io.grpc._
 
 class AuthorizationInterceptor extends ServerInterceptor with LazyLogging {

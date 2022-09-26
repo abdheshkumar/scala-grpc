@@ -12,14 +12,14 @@ lazy val commonSettings = Seq(
   organization := "grpc-chatroom",
   version := "0.1",
   libraryDependencies ++= Seq(
-    "com.auth0" % "java-jwt" % "3.18.3",
+    "com.auth0" % "java-jwt" % "4.0.0",
     "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
-    "com.typesafe" % "config" % "1.4.1",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
+    "com.typesafe" % "config" % "1.4.2",
     "com.github.pureconfig" %% "pureconfig" % "0.17.1",
-    "org.scalatest" %% "scalatest" % "3.2.11" % Test
+    "org.scalatest" %% "scalatest" % "3.2.12" % Test
   )
 )
 lazy val protobuf =
@@ -42,10 +42,5 @@ lazy val client =
 lazy val server =
   project
     .in(file("server"))
-    .settings(
-      libraryDependencies ++= Seq(
-        "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4"
-      ),
-      commonSettings
-    )
+    .settings(commonSettings)
     .dependsOn(protobuf)

@@ -1,5 +1,7 @@
-import io.grpc.{Context, Metadata}
+package common
+
 import io.grpc.Metadata.ASCII_STRING_MARSHALLER
+import io.grpc.{Context, Metadata}
 
 object Constant {
   // Add a JWT_METADATA_KEY
