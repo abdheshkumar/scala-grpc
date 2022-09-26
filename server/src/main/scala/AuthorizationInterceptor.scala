@@ -7,8 +7,11 @@ class AuthorizationInterceptor extends ServerInterceptor with LazyLogging {
                                           serverCallHandler: ServerCallHandler[ReqT, RespT]) = {
     //  Get token from Metadata
     val token = metadata.get(Constant.JWT_METADATA_KEY)
-    logger.info(s"interceptCall token: $token")
-    val ctx = Context.current.withValue(Constant.USER_ID_CTX_KEY, s"my-value1-${token}").withValue(Constant.JWT_CTX_KEY, s"my-value2-${token}")
+    logger.info(s"AuthorizationInterceptor#interceptCall token: $token")
+    val ctx = Context
+      .current
+      .withValue(Constant.USER_ID_CTX_KEY, s"my-value1-$token")
+      .withValue(Constant.JWT_CTX_KEY, s"my-value2-$token")
     //logger.info(s"jwt.getPayload ${jwt.getPayload}")
     Contexts.interceptCall(ctx, serverCall, metadata, serverCallHandler)
   }

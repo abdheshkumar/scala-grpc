@@ -16,7 +16,7 @@ class LoggingServerInterceptor extends ServerInterceptor {
           s"grpcType=${delegateCall.getMethodDescriptor.getType}, " +
           s"status=${status.getCode.name}, " +
           s"description=${status.getDescription}, " +
-          s"durationMs=$approximateDuration, "
+          s"durationMs=$approximateDuration"
         println(message)
       }
     }

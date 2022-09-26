@@ -7,24 +7,14 @@ import scala.concurrent.{ExecutionContext, Future};
 
 object Server extends IOApp {
 
-  class GreeterImplIO extends GreeterFs2Grpc[IO, Metadata] {
-    override def sayHello(req: HelloRequest, ctx: Metadata): IO[HelloReply] = {
-      println("********" + Constant.JWT_CTX_KEY.get())
-      val reply = HelloReply(message =
-        "Hello " + req.name + ctx.get(
-          Metadata.Key.of("header-name", Metadata.ASCII_STRING_MARSHALLER)
-        )
-      )
-      IO.pure(reply)
-    }
-  }
-
   class GreeterImplFuture extends GreeterGrpc.Greeter {
     override def sayHello(
         req: HelloRequest /*, ctx: Metadata*/
     ): Future[HelloReply] = {
       println("***GreeterImplFuture*****" + Constant.JWT_CTX_KEY.get())
-      val reply = HelloReply(message = "Hello " + req.name)
+      val reply = HelloReply(message =
+        "Hello " + req.name + " " + Constant.JWT_CTX_KEY.get()
+      )
       Future.successful(reply)
     }
   }
@@ -38,7 +28,9 @@ object Server extends IOApp {
       // https://github.com/typelevel/fs2-grpc/pull/115
       // https://github.com/typelevel/fs2-grpc/pull/86/commits/25456d44e84fc3e14a9961dc88d6704584724918
       println("****HelloWorldImplIO****" + Constant.JWT_CTX_KEY.get())
-      val reply = HelloReply(message = "Hello " + req.name)
+      val reply = HelloReply(message =
+        "Hello " + req.name + " " + Constant.JWT_CTX_KEY.get()
+      )
       IO.pure(reply)
     }
   }
@@ -55,8 +47,6 @@ object Server extends IOApp {
           service
         )
       )
-
-  // val helloService: Resource[IO, ServerServiceDefinition] = GreeterFs2Grpc.bindServiceResource(new GreeterImplIO())
 
   def run(services: ServerServiceDefinition*) = {
     Resource.make {
@@ -80,7 +70,8 @@ object Server extends IOApp {
   }
 
   override def run(args: List[String]): IO[ExitCode] =
-    helloService.flatMap(services => run(services: _*)).use(_ => IO.never).map {
-      _ => ExitCode.Success
-    }
+    helloService
+      .flatMap(services => run(services: _*))
+      .use(_ => IO.never)
+      .as(ExitCode.Success)
 }
