@@ -3,7 +3,7 @@ lazy val root = project
   .settings(
     name := "sample-grpc-service",
     version := "0.1",
-    scalaVersion := "2.12.13"
+    scalaVersion := "2.12.17"
   )
   .aggregate(protobuf, client, server)
 
