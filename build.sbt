@@ -8,7 +8,7 @@ lazy val root = project
   .aggregate(protobuf, client, server)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.13.3",
+  scalaVersion := "2.13.10",
   organization := "grpc-chatroom",
   version := "0.1",
   libraryDependencies ++= Seq(
