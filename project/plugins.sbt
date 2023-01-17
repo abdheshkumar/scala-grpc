@@ -1,3 +1,3 @@
-addSbtPlugin("org.typelevel" % "sbt-fs2-grpc" % "2.5.6")
+addSbtPlugin("org.typelevel" % "sbt-fs2-grpc" % "2.5.8")
 
 libraryDependencies += "com.thesamet.scalapb.zio-grpc" %% "zio-grpc-codegen" % "0.6.0-test7"
