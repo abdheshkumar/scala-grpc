@@ -12,7 +12,7 @@ lazy val commonSettings = Seq(
   organization := "grpc-chatroom",
   version := "0.1",
   libraryDependencies ++= Seq(
-    "com.auth0" % "java-jwt" % "4.3.0",
+    "com.auth0" % "java-jwt" % "4.4.0",
     "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
