@@ -19,7 +19,7 @@ lazy val commonSettings = Seq(
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
     "com.typesafe" % "config" % "1.4.3",
     "com.github.pureconfig" %% "pureconfig" % "0.17.5",
-    "org.scalatest" %% "scalatest" % "3.2.17" % Test
+    "org.scalatest" %% "scalatest" % "3.2.18" % Test
   )
 )
 lazy val protobuf =
