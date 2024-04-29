@@ -3,12 +3,12 @@ lazy val root = project
   .settings(
     name := "sample-grpc-service",
     version := "0.1",
-    scalaVersion := "2.13.13"
+    scalaVersion := "2.13.14"
   )
   .aggregate(protobuf, client, server)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.13.13",
+  scalaVersion := "2.13.14",
   organization := "grpc-chatroom",
   version := "0.1",
   libraryDependencies ++= Seq(
