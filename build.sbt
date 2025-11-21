@@ -16,7 +16,7 @@ lazy val commonSettings = Seq(
     "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
     "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.6",
     "com.typesafe" % "config" % "1.4.3",
     "com.github.pureconfig" %% "pureconfig" % "0.17.8",
     "org.scalatest" %% "scalatest" % "3.2.19" % Test
